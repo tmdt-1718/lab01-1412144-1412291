@@ -4,11 +4,47 @@
     <title>FastBlog</title>
     <%= csrf_meta_tags %>
 
+
+    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'%>
+    <%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render '/layouts/header' %>
+    <div class="container-fluid">
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+          <div class="sidebar-nav">
+            <ul class="nav">
+
+              <li class="active"><a href="javascript:;">Link</a></li>
+              <li><a href="javascript:;">Link</a></li>
+              <li><a href="javascript:;">Link</a></li>
+              <li class="nav-divider"></li>
+              <li><a href="javascript:;">Link</a></li>
+              <li><a href="javascript:;">Link</a></li>
+              <li><a href="javascript:;">Link</a></li>
+              <li class="nav-divider"></li>
+              <li><a href="javascript:;">Link</a></li>
+              <li><a href="javascript:;">Link</a></li>
+            </ul>
+          </div>
+          <!--/.well -->
+        </div>
+        <!--/span-->
+
+        <div class="col-xs-12 col-sm-9">
+          <br>
+
+          <%= yield %>
+        </div>
+      </div>
+
+    <%= render '/layouts/footer' %>
+    </div>
+    <!--/.container-->
   </body>
 </html>

@@ -6,11 +6,10 @@
 
 <p>
   <strong>Text:</strong>
-  <%= @album.text %>
+  <%= @album.name %>
 </p>
 <p>
-  <strong>Image:</strong>
-  <%= link_to image_tag(@album.image.url(:large)), @album.image.url %>
+  <%= link_to image_tag(@album.cover.url(:large))%>
 </p>
 <h4>Leave a Comment:</h4>
 <%= render 'comments/form' %>

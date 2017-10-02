@@ -11,7 +11,7 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
   end
   def index
-    @albums = Album.where('status = 0')
+    @albums = Album.all
   end
   def create
     @album = current_user.albums.new(album_params)

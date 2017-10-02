@@ -1,9 +1,12 @@
-<% @albums.each do |album| %>
-<h4><small>RECENT POSTS</small></h4>
-<hr>
-<h2><%= album.name %></h2>
-<h5><span>Author: <%= album.user.name %></span></h5><br>
-<p><%= album.name %></p>
-<br><br>
-<%= link_to 'Show', album_path(album), class: 'btn btn-primary btn-xs'  %>
+<% if @albums %>
+  <% @albums.each do |album| %>
+    <h4><small>RECENT POSTS</small></h4>
+    <hr>
+    <h2><%= album.name %></h2>
+    <h5><span>Author: <%= album.user.name %></span></h5><br>
+    <p><%= album.name %></p>
+    <div><%=image_tag(album.cover.url(:med)) %></div>
+    <br><br>
+    <%= link_to 'Show', album_path(album), class: 'btn btn-primary btn-xs'  %>
+  <% end%>
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171002155731) do
+ActiveRecord::Schema.define(version: 20171002172114) do
 
   create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -24,23 +24,23 @@ ActiveRecord::Schema.define(version: 20171002155731) do
     t.index ["user_id"], name: "index_albums_on_user_id"
   end
 
-  create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "title"
+  create_table "blogs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
-    t.integer "views"
-    t.bigint "user_id"
+    t.integer "view_counts"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_articles_on_user_id"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
     t.bigint "user_id"
-    t.bigint "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["article_id"], name: "index_comments_on_article_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -74,8 +74,6 @@ ActiveRecord::Schema.define(version: 20171002155731) do
   end
 
   add_foreign_key "albums", "users"
-  add_foreign_key "articles", "users"
-  add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
   add_foreign_key "photos", "albums"
 end

@@ -14,3 +14,12 @@
  *= require_self
  *= require header_page
  */
+textarea {
+    resize: none;
+}
+.morecontent span {
+    display: none;
+}
+.morelink {
+    display: block;
+}

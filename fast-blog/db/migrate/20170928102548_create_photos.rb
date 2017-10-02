@@ -3,7 +3,6 @@ class CreatePhotos < ActiveRecord::Migration[5.1]
     create_table :photos do |t|
       t.integer :views
       t.attachment :source
-      t.references :album, foreign_key: true
 
       t.timestamps
     end

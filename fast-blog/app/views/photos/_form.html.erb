@@ -1,0 +1,15 @@
+
+<%= form_for([@album, @album.photos.build]) do |f| %>
+
+<div class="form-group">
+<p>
+  <%= f.label 'Photo' , class: "col-md-4 control-label"%><br>
+  <%= f.file_field :source , class: "form-control"%>
+</p>
+</div>
+<div class="form-group">
+  <p>
+    <%= f.submit nil, class: "btn btn-success"%>
+  </p>
+</div>
+<% end %>

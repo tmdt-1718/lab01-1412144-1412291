@@ -6,7 +6,9 @@ class User < ApplicationRecord
   has_many :blogs, dependent: :destroy
   has_many :comments, dependent: :destroy
   validates :name, :email, :password, :password_confirmation, presence: true
-  devise :database_authenticatable, :registerable,:confirmable,
+  has_attached_file :avatar, styles: { small: "64x64", med: "100x100", large: "300x300" }
+  validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:facebook]
 
          def self.new_with_session(params, session)

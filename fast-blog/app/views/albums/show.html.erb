@@ -19,9 +19,11 @@
       <div><%=image_tag(photo.source.url(:med)) %></div>
       <br><br>
     <% end%>
-  </div>
-  <% if current_user.id == @album.user_id %>
-    <%= link_to 'Edit', edit_album_path(@album) %> |
-  <% end %>
-
+    </div>
+    <% if user_signed_in? %>
+      <% if current_user.id == @album.user_id %>
+        <%= link_to 'Edit', edit_album_path(@album) %> |
+      <% end %>
+    <% end %>
+  <% end%>
 </div>

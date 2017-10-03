@@ -25,7 +25,7 @@ class User < ApplicationRecord
              user.email = auth.info.email
              user.password = Devise.friendly_token[0,20]
              user.name = auth.info.name   # assuming the user model has a name
-             user.avatar_fb = auth.info.avatar_fb # assuming the user model has an image
+             user.avatar_fb = auth.info.image # assuming the user model has an image
            end
          end
 

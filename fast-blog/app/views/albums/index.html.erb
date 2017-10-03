@@ -1,12 +1,17 @@
-<% if @albums %>
-  <% @albums.each do |album| %>
-    <h4><small>RECENT POSTS</small></h4>
-    <hr>
-    <h2><%= album.name %></h2>
-    <h5><span>Author: <%= album.user.name %></span></h5><br>
-    <p><%= album.name %></p>
-    <div><%=image_tag(album.cover.url(:med)) %></div>
-    <br><br>
-    <%= link_to 'Show', album_path(album), class: 'btn btn-primary btn-xs'  %>
-  <% end%>
+<% if user_signed_in? %>
+  <div><%= link_to 'New Album', new_album_path, class: 'btn btn-primary btn-xs'  %></div>
 <% end %>
+<div>
+  <% if @albums %>
+    <% @albums.each do |album| %>
+      <div>
+        <h2><%= album.name %></h2>
+        <h5><span>Author: <%= album.user.name %></span></h5><br>
+        <p><%= album.name %></p>
+        <div><%=image_tag(album.cover.url(:med)) %></div>
+        <br><br>
+        <%= link_to 'Show', album_path(album), class: 'btn btn-primary btn-xs'  %>
+      </div>
+    <% end%>
+  <% end %>
+</div>

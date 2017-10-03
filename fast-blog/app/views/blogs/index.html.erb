@@ -5,17 +5,18 @@
 <div class="container col-12 col-sm-12 col-lg-12">
 
   <% @blogs.each do |blog| %>
-      <div class="media ">
+      <div class="media index-page ">
         <div class="media-left">
           <%= image_tag('https://cdn1.iconfinder.com/data/icons/ninja-things-1/720/ninja-background-128.png' , :style => "max-width:60px;max-height:60px", :class => "media-object") %><br>
         </div>
         <div class="media-body">
           <h4 class="media-heading">Ten nguoi viet</h4>
           <p><%= blog.created_at.to_s  %></p>
-          <center>
-
-            <%= image_tag(blog.image.url(:thumb) ,  class:'img-media') %><br>
-          </center>
+          <% if blog.image_file_name != nil %>
+            <center>
+              <%= image_tag(blog.image.url(:thumb) ,  class:'img-media') %><br>
+            </center>
+          <%end%>
           <span class = "more" style="text-align:justify;"><%= blog.content %></span>
           <br>
           <div>

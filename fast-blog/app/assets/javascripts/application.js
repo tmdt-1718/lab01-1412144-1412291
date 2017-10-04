@@ -55,6 +55,15 @@ $(document).on('turbolinks:load', function(){
     });
     init();
 
+    $(".comment-area").keydown(function(event) {
+        if (event.keyCode == 13) {
+            this.form.submit();
+            return false;
+        }
+    });
+
+
+
 });
 var loadFile = function(event) {
     var output = document.getElementById('output');

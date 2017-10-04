@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root :to => "home#index"
   get 'about', to: 'about#index'
   get 'blogs', to: 'blogs#index'
+  get 'home', to: 'home#index'
   resources :albums do
     resources :photos
   end

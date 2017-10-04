@@ -14,14 +14,12 @@ ActiveRecord::Schema.define(version: 20171003040525) do
 
   create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "cover_file_name"
     t.string "cover_content_type"
     t.integer "cover_file_size"
     t.datetime "cover_updated_at"
-    t.index ["user_id"], name: "index_albums_on_user_id"
   end
 
   create_table "blogs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -38,10 +36,10 @@ ActiveRecord::Schema.define(version: 20171003040525) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
-    t.bigint "user_id"
+    t.integer "user_id"
+    t.integer "blog_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -50,10 +48,8 @@ ActiveRecord::Schema.define(version: 20171003040525) do
     t.string "source_content_type"
     t.integer "source_file_size"
     t.datetime "source_updated_at"
-    t.bigint "album_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["album_id"], name: "index_photos_on_album_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -81,7 +77,4 @@ ActiveRecord::Schema.define(version: 20171003040525) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "albums", "users"
-  add_foreign_key "comments", "users"
-  add_foreign_key "photos", "albums"
 end

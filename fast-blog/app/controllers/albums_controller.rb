@@ -6,7 +6,7 @@ class AlbumsController < ApplicationController
   def show
     @album = Album.find(params[:id])
     @photos = @album.photos.all
-
+    @views_count = 0
     @photos.each do |photo|
       @views_count = @views_count + photo.views
     end
@@ -17,11 +17,13 @@ class AlbumsController < ApplicationController
   end
   def index
     @albums = Album.all
+    @views_array = Array.new
     @albums.each do |album|
-      @views_count = 0
+      views_count = 0
       album.photos.each do |photo|
-        @views_count = @views_count + photo.views
+        views_count = views_count + photo.views
       end
+      @views_array.push(views_count)
     end
   end
   def create

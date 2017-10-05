@@ -12,14 +12,17 @@ class BlogsController < ApplicationController
     @blog.view_counts=0
     @blog.user_id = current_user.id
     if @blog.save
+      redirect_to blogs_path
     else
-      p @blog.errors
+      render 'new'
     end
 
-    redirect_to blogs_path
+
   end
   def show
     @blog = Blog.find(params[:id])
+    view_counts = @blog.view_counts + 1
+    @blog.update(view_counts: view_counts)
     @title = "Blogs"
   end
   def destroy
@@ -34,7 +37,10 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
     if @blog.update(blog_params)
       redirect_to blog_path(@blog)
+    else
+      render 'edit'
     end
+
   end
   private
     def blog_params

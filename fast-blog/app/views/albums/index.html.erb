@@ -1,16 +1,22 @@
 <% if user_signed_in? %>
-  <div><%= link_to 'New Album', new_album_path, class: 'btn btn-primary btn-xs'  %></div>
+  <div class="col-12 col-xs-12 col-sm-12 col-lg-12">
+    <%= link_to '+ New Album', new_album_path, class: 'btn btn-primary',style: 'margin-left:15px;font'  %>
+  </div>
 <% end %>
-<div>
+<div class="col-12 col-xs-12 col-sm-12 col-lg-12">
   <% if @albums %>
-    <% @albums.each do |album| %>
+    <% @albums.zip(@views_array).each do |album,view| %>
       <div class="col-6 col-xs-6 col-sm-6 col-lg-3">
         <h2><%= album.name %></h2>
         <h5><span>Author: <%= album.user.name %></span></h5>
-        <h5><span>Views: <%= @views_count %>
-        </span></h5>
+        <h5><span>Views: <%= view %></span></h5>
         <div class="img-box">
         <%=link_to image_tag(album.cover.url(:large), class: "img-responsive img-cover-thumb",style: 'min-width: 100%, height:auto'),album_path(album) %>
+        </div>
+        <div class="pull-right">
+          <%= link_to image_tag('https://cdn4.iconfinder.com/data/icons/miu/24/editor-trash-delete-recycle-bin-glyph-16.png'), album_path(album),
+                      method: :delete,
+                      data: {confirm: 'Are you want to delete this album?'}%>
         </div>
       </div>
     <% end%>

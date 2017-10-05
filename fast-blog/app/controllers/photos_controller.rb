@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+
   def create
     @album = Album.find(params[:album_id])
     @photo = @album.photos.new(source: photo_params[:source])
@@ -16,7 +17,8 @@ class PhotosController < ApplicationController
   def show
 
     @photo = Photo.find(params[:id])
-
+    views = @photo.views + 1
+    @photo.update(views: views)
   end
   private
     def photo_params

@@ -6,6 +6,9 @@
   <p style="text-align: center;font-size: 45px">
     Author. <%= @album.user.name %>
   </p>
+  <p style="text-align: center;font-size: 19px">
+    Views: <%= @views_count %>
+  </p>
   <div class="col-xs-12 col-sm-12">
     <center>
       <%= link_to image_tag(@album.cover.url(:original), style: 'max-width:800px;max-height:600px')%>
@@ -16,16 +19,18 @@
     <% @photos.each do |photo| %>
           <div class="col-6 col-xs-6 col-sm-4 col-lg-3">
             <div class="img-box">
-              <%=link_to image_tag(photo.source.url(:large), class: "img-responsive img-cover-thumb",style: 'min-width: 100%, height:auto'), [photo.album,photo] %>
+              <%=link_to image_tag(photo.source.url(:large), class: "img-responsive img-cover-thumb",style: 'min-width: 100%, height:auto'), [photo.album,photo], target: '_blank' %>
             </div>
             <div class="pull-left" style="padding-left: 3px">
               <p>Views: <%= photo.views %></p>
             </div>
-            <div class="pull-right">
-              <%= link_to image_tag('https://cdn4.iconfinder.com/data/icons/miu/24/editor-trash-delete-recycle-bin-glyph-16.png'), [photo.album,photo],
-                          method: :delete,
-                          data: {confirm: 'Are you want to delete this photo?'}%>
-            </div>
+            <% if user_signed_in? && current_user.id == @album.user_id%>
+              <div class="pull-right">
+                <%= link_to image_tag('https://cdn4.iconfinder.com/data/icons/miu/24/editor-trash-delete-recycle-bin-glyph-16.png'), [photo.album,photo],
+                            method: :delete,
+                            data: {confirm: 'Are you want to delete this photo?'}%>
+              </div>
+            <%end%>
           </div>
 
     <% end%>
@@ -34,8 +39,9 @@
   <% end%>
 
   <div class="col-xs-12 col-sm-12">
-    <hr>
-    <% if user_signed_in? %>
+
+    <% if user_signed_in? && current_user.id == @album.user_id %>
+        <hr>
         <div>
           <h4>Add Photo:</h4>
           <%= render 'photos/form' %>

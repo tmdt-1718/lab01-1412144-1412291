@@ -14,9 +14,12 @@
 //= require turbolinks
 //= require_tree .
 $(document).on('turbolinks:load', function(){
+    //Active when click tag in left menu
     $('[data-toggle=offcanvas]').click(function() {
         $('.row-offcanvas').toggleClass('active');
     });
+
+    //Show more or show less blog
     var showChar = 280;  // How many characters are shown by default
     var ellipsestext = "...";
     var moretext = "Show more >";
@@ -53,7 +56,9 @@ $(document).on('turbolinks:load', function(){
         $(this).prev().toggle();
         return false;
     });
-    init();
+
+    //Config text area can auto-expand
+    initTextareaExpand();
 
     $(".comment-area").keydown(function(event) {
         if (event.keyCode == 13) {
@@ -81,7 +86,7 @@ else {
         element.addEventListener(event, handler, false);
     };
 }
-function init () {
+function initTextareaExpand() {
     var text = document.querySelector('textarea');
     function resize () {
         text.style.height = 'auto';

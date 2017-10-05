@@ -4,12 +4,14 @@
 <div>
   <% if @albums %>
     <% @albums.each do |album| %>
-      <div>
+      <div class="col-6 col-xs-6 col-sm-6 col-lg-3">
         <h2><%= album.name %></h2>
         <h5><span>Author: <%= album.user.name %></span></h5>
-        <div><%=image_tag(album.cover.url(:med)) %></div>
-        <br>
-        <%= link_to 'Show', album_path(album), class: 'btn btn-primary btn-xs'  %>
+        <h5><span>Views: <%= @views_count %>
+        </span></h5>
+        <div class="img-box">
+        <%=link_to image_tag(album.cover.url(:large), class: "img-responsive img-cover-thumb",style: 'min-width: 100%, height:auto'),album_path(album) %>
+        </div>
       </div>
     <% end%>
   <% end %>

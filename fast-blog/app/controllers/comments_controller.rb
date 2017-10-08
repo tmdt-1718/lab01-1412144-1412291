@@ -2,9 +2,14 @@ class CommentsController < ApplicationController
 
   def create
     @blog = Blog.find(params[:blog_id])
-    @comment = @blog.comments.create(user_id: current_user.id, content: comment_params[:content])
-    redirect_to blog_path(@blog)
+    @user = User.find(@blog.user_id)
+    @comment = @blog.comments.new(user_id: current_user.id, content: comment_params[:content])
+    if @comment.save
+      MyMailer.comment_email(@blog,@user,current_user).deliver_later
+      redirect_to blog_path(@blog)
+    end
   end
+
   def destroy
 
     @comment = Comment.find(params[:id])

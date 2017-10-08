@@ -13,7 +13,7 @@
         <div class="img-box">
         <%=link_to image_tag(album.cover.url(:large), class: "img-responsive img-cover-thumb",style: 'min-width: 100%, height:auto'),album_path(album) %>
         </div>
-        <% if user_signed_in? && current_user.id == @album.user_id%>
+        <% if user_signed_in? && current_user.id == album.user_id%>
           <div class="pull-right">
             <%= link_to image_tag('https://cdn4.iconfinder.com/data/icons/miu/24/editor-trash-delete-recycle-bin-glyph-16.png'), album_path(album),
                         method: :delete,

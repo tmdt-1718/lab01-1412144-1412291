@@ -7,10 +7,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # POST /resource
-  # def create
-  #   super
-  # end
+
+  def create
+    @user = User.new(params.require(:user).permit(:email, :avatar, :name, :password, :password_confirmation))
+    if @user.save
+        MyMailer.welcome_email(@user).deliver_later
+        sign_in @user
+        redirect_to root_path
+    end
+  end
 
   # GET /resource/edit
   # def edit

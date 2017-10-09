@@ -7,8 +7,8 @@
   <body>
     <h1>Hi,  <%= @user.name %></h1>
     <p>
-      <%= @user_comment.name %> left a comment on your blog.<br>
+      <%= @user_comment.name %> left a comment on your blog<br>
     </p>
-      <%= link_to 'View comments', @url %>
+      <a href="<%= @url %>">View comments</a>
   </body>
 </html>

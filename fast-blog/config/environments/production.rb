@@ -26,6 +26,12 @@ Rails.application.configure do
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
+  # config mailer
+  config.action_mailer.default_url_options = { host: 'radiant-plateau-45861.herokuapp.com', protocol: 'https' }
+  config.action_mailer.perform_caching = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default :charset => "utf-8"
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false

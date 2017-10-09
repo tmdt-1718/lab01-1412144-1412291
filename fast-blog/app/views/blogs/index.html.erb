@@ -20,7 +20,7 @@
 
           <%end%>
           <br>
-          <span class = "more" style="text-align:justify;"><%= blog.content %></span>
+          <span class = "blog-content" style="text-align:justify;"><%= simple_format(truncate(blog.content,length: 150, separator: ' ',omission: '...'))%></span>
           <br>
           <div>
             <%= link_to 'View blog ',blog_path(blog),class: 'btn btn-default'%>

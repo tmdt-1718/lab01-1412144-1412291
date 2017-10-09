@@ -48,19 +48,11 @@ Rails.application.configure do
   config.assets.quiet = true
 
 
-  ActionMailer::Base.delivery_method = :smtp
+
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default :charset => "utf-8"
-       ActionMailer::Base.smtp_settings = {
-       :address              => "smtp.gmail.com",
-       :port                 => 587,
-       :domain => "gmail.com",
-       :user_name            => "notificationsec2017@gmail.com",
-       :password             => 'ec20172018',
-       :authentication       => "plain",
-       :enable_starttls_auto => true
-       }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 

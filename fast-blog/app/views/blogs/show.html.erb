@@ -11,7 +11,7 @@
         <%= image_tag(@blog.image.url(:thumb) ,  class:'img-media') %><br>
       </center>
       <%end%>
-      <p class = "content" style="text-align:justify;"><%= @blog.content %></p>
+      <p class = "content" style="text-align:justify;"><%= simple_format(@blog.content) %></p>
 
       <br>
       <div>

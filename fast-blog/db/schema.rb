@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20171004124433) do
 
-  create_table "albums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20171004124433) do
     t.integer "user_id"
   end
 
-  create_table "blogs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "blogs", force: :cascade do |t|
     t.text "content"
     t.integer "view_counts"
     t.integer "user_id"
@@ -35,7 +38,7 @@ ActiveRecord::Schema.define(version: 20171004124433) do
     t.datetime "image_updated_at"
   end
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "comments", force: :cascade do |t|
     t.text "content"
     t.integer "user_id"
     t.integer "blog_id"
@@ -43,7 +46,7 @@ ActiveRecord::Schema.define(version: 20171004124433) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "photos", force: :cascade do |t|
     t.integer "views"
     t.string "source_file_name"
     t.string "source_content_type"
@@ -54,7 +57,7 @@ ActiveRecord::Schema.define(version: 20171004124433) do
     t.integer "album_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

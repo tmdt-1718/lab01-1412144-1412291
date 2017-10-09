@@ -6,7 +6,7 @@ Thành viên:
 * [x] **1412144** Đỗ Trường Hải (tên tài khoản github: 1412144)
 * [x] **1412291** Lữ Tâm Long (tên tài khoản github: 1412291)
 
-URL: **https://radiant-plateau-45861.herokuapp.com/albums**
+URL: **https://radiant-plateau-45861.herokuapp.com**
 
 ## Yêu cầu
 

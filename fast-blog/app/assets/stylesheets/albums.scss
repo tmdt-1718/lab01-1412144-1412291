@@ -1,0 +1,39 @@
+// Place all the styles related to the Albums controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+img.img-cover-thumb
+{
+  object-fit: cover;
+  position: absolute;
+  top:      0;
+  left:     0;
+  bottom:   0;
+  right:    0;
+  height: 100%;
+  width:100%;
+}
+
+.img-box {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  margin: 1%;
+  vertical-align: top;
+  box-shadow: 0 0 4px rgba(0,0,0,.3);
+}
+
+.img-box:before {
+  content:     "";
+  display:     block;
+  padding-top: 100%; /* initial ratio of 1:1*/
+}
+
+.image-upload > input
+{
+  display: none;
+}
+.image-upload img
+{
+  width: 100%;
+  cursor: pointer;
+}

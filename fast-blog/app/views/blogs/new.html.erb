@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="media">
+    <div class="media-left">
+    </div>
+    <div class="media-body">
+      <%= form_for :blog,html: {class: "col-9 col-xs-12 col-sm-9 col-lg-12"},url: blogs_path do |f|  %>
+          <center>
+            <%= image_tag(@blog.image.url(:thumb) , :id => "output", :style => "max-width:200px;max-height:200px") %><br>
+          </center>
+          <div class="form-group">
+            <%= f.label :image, style: 'font-size: 17px'%>
+            <%= f.file_field :image, accept: 'image/*', :onchange => "loadFile(event)" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :content, style: 'font-size: 17px'%>
+            <%= f.text_area :content, :class=>"form-control", rows: "10", style: "width:100%"%>
+          </div>
+          <center>
+            <%= f.submit 'Create blog', class: "btn btn-primary"%>
+          </center>
+
+      <% end %>
+    </div>
+    <div class="media-right">
+    </div>
+  </div>
+
+</div>

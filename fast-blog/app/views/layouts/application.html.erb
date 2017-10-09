@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FastBlog</title>
+    <%= csrf_meta_tags %>
+
+
+    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'%>
+    <%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render '/layouts/header' %>
+
+    <div class="container-fluid">
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+          <div class="sidebar-nav">
+            <ul class="nav">
+
+              <li class="active">
+                <a href="<%= home_path %>">Home <span><img  class="pull-right" src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/home-16.png"></span></a>
+              </li>
+              <li>
+                <a href="<%= albums_path %>">Album <span><img  class="pull-right" src="https://cdn4.iconfinder.com/data/icons/thefreeforty/30/thefreeforty_picture-16.png"></span></a>
+              </li>
+              <li>
+                <a href="<%= about_path %>">About <span><img  class="pull-right" src="https://cdn0.iconfinder.com/data/icons/windows8_icons/26/about.png" style="width: 16px;height: 16px"></span></a>
+              </li>
+              <li>
+                <a href="<%= blogs_path %>">Blogs <span><img  class="pull-right" src="https://cdn3.iconfinder.com/data/icons/rcons-social/32/lifejournal_life_journal-16.png" style="width: 16px;height: 16px"></span></a>
+              </li>
+              <hr>
+            </ul>
+          </div>
+          <!--/.well -->
+        </div>
+        <!--/span-->
+
+        <div class="col-xs-12 col-sm-9">
+          <br>
+          <%= render '/layouts/title' %>
+          <div class="row">
+          <%= yield %>
+          </div>
+        </div>
+      </div>
+
+    <%= render '/layouts/footer' %>
+    </div>
+    <!--/.container-->
+  </body>
+</html>

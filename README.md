@@ -3,8 +3,8 @@
 **Name of your app** là một bài tập môn TMDT. Ứng dụng cho phép người dùng gửi tin nhắn (email) cho người dùng khác.
 
 Thành viên:
-* [ ] **1412144** Đỗ Trường Hải (tên tài khoản github: 1412144)
-* [ ] **1412291** Lữ Tâm Long (tên tài khoản github: 1412291)
+* [x] **1412144** Đỗ Trường Hải (tên tài khoản github: 1412144)
+* [x] **1412291** Lữ Tâm Long (tên tài khoản github: 1412291)
 
 URL: **URL hosting của bài tập**
 
@@ -33,12 +33,12 @@ Yêu cầu **bắt buộc**
 Yêu cầu **không bắt buộc**:
 * [x] Có thể xem danh sách các comment của từng bài viết.  (**1412291**)
 * [x] Cho phép người dùng đã đăng nhập comment cho bài viết. (**1412291**)
-* [ ] Quản lý thêm thông tin tag cho mỗi bài viết. Mỗi bài viết có thể bao gồm nhiều tag và mỗi tag có thể có nhiều bài viết. (**1412144**)
+* [ ] Quản lý thêm thông tin tag cho mỗi bài viết. Mỗi bài viết có thể bao gồm nhiều tag và mỗi tag có thể có nhiều bài viết. (MSSV)
 * [x] Cho phép người dùng đăng nhập bằng tài khoản facebook và lấy ảnh đại diện, email từ facebook. (**1412144**)
 * [x] Cho phép người dùng tạo album và đăng ảnh mới vào album. (**1412144**)
 * [x] Chỉ cho phép người tạo album được phép thêm, xóa ảnh mình đã đăng vào album. (**1412144**)
 * [x] Chỉ cho phép người tạo bài viết được phép chỉnh sửa bài viết mình đã đăng. (**1412291**)
-* [ ] Cho phép người dùng layout bài viết bằng markdown. (**1412144**)
+* [ ] Cho phép người dùng layout bài viết bằng markdown. (MSSV)
 * [x] Gửi mail cho người dùng khi người dùng đã đăng nhập thành công. (**1412144**)
 * [x] Gửi mail cho tác giả khi có người dùng comment vào bài viết của họ. (**1412144**)
 
